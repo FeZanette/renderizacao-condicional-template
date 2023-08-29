@@ -1,14 +1,25 @@
-import { Form, FormContainer, Input, StyledLabel, SendButton, BackToLoginButton } from "./styled";
+import {
+  Form,
+  FormContainer,
+  Input,
+  StyledLabel,
+  SendButton,
+  BackToLoginButton,
+} from "./styled";
 
-function TelaCadastro() {
-  const cadastrar = () => {
-    // validação de cadastro ainda será visto mais pra frente no curso
-    alert("Cadastro realizado com sucesso, mas falta fazer a prática 3 e remover esse alerta")
-  }
+function TelaCadastro(props) {
+  // ANTIGAS FUNÇÕES DO BOTÃO QUE DEVEM SER APAGADAS DO CÓDIGO:
 
-  const mostrarTelaLogin = () => {
-    alert("Faça a prática 2 e remova esse alerta")
-  }
+  // const cadastrar = () => {
+  //   // validação de cadastro ainda será visto mais pra frente no curso
+  //   alert(
+  //     "Cadastro realizado com sucesso, mas falta fazer a prática 3 e remover esse alerta"
+  //   );
+  // };
+
+  // const mostrarTelaLogin = () => {
+  //   alert("Faça a prática 2 e remova esse alerta");
+  // };
 
   return (
     <FormContainer>
@@ -35,9 +46,21 @@ function TelaCadastro() {
           <Input id="descricao" />
         </StyledLabel>
 
-        <SendButton onClick={cadastrar}>Cadastrar</SendButton>
+        <SendButton
+          onClick={() => {
+            props.alterarTela("principal");
+          }}
+        >
+          Cadastrar
+        </SendButton>
 
-        <BackToLoginButton onClick={mostrarTelaLogin}>Já possuo cadastro</BackToLoginButton>
+        <BackToLoginButton
+          onClick={() => {
+            props.alterarTela("login");
+          }}
+        >
+          Já possuo cadastro
+        </BackToLoginButton>
       </Form>
     </FormContainer>
   );
